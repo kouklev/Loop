@@ -108,12 +108,24 @@ final class DeviceDataManager {
     }
 
     /// TODO: Isolate to queue
-    private func setupCGM() {
-        cgmManager?.cgmManagerDelegate = self
-        loopManager.glucoseStore.managedDataInterval = cgmManager?.managedDataInterval
+	private func setupCGM() {
+		cgmManager?.cgmManagerDelegate = self
+		loopManager.glucoseStore.managedDataInterval = cgmManager?.managedDataInterval
 
-        pumpManager?.updateBLEHeartbeatPreference()
-    }
+		pumpManager?.updateBLEHeartbeatPreference()
+		
+		cgmManager?.fetchNewDataIfNeeded { (result) in
+			if case .newData = result {
+				AnalyticsManager.shared.didFetchNewCGMData()
+			}
+			
+			if let manager = self.cgmManager {
+				// TODO: Isolate to queue?
+				self.cgmManager(manager, didUpdateWith: result)
+			}
+		}
+
+	}
 
     private func setupPump() {
         pumpManager?.pumpManagerDelegate = self
