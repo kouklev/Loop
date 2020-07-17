@@ -374,7 +374,7 @@
 "U" = "U"; 
 
 /* The title of the alert controller used to select a duration for workout targets */
-"Use Workout Glucose Targets" = "Применить цели гликемии как для физической нагрузки";
+"Use Workout Glucose Targets" = "Применить цели гл-мии как для физ. нагрузки";
 
 /* Title of insulin model setting */
 "Walsh" = "Walsh";
@@ -383,5 +383,5 @@
 "When current or forecasted glucose is below the suspend threshold, Loop will not recommend a bolus, and will always recommend a temporary basal rate of 0 units per hour." = "Если текущая или предсказываемая гликемия ниже порога приостановки помпы, алгоритм цикла ипж не рекомендует болюс и всегда рекомендует временный базал 0 ед/час";
 
 /* The label of the workout mode toggle button */
-"Workout Targets" = "Целевые значения при физической нагрузке";
+"Workout Targets" = "Целевые значения при физ. нагрузке";
 
